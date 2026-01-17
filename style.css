@@ -579,3 +579,44 @@ html,body{
 
   section.hero{ padding-top: 90px !important; }
 }
+/* ✅ TELEFONDA: LOGO BUYUK + MENU TEK SATIR */
+@media (max-width: 768px){
+
+  header.header{
+    height: 90px !important;
+    padding: 0 18px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    flex-wrap:nowrap !important;
+  }
+
+  header.header > img.logo{
+    height: 80px !important;   /* ✅ logo büyüsün */
+    width: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    flex: 0 0 auto !important;
+  }
+
+  header.header nav.menu{
+    display:flex !important;
+    align-items:center !important;
+    gap: 18px !important;
+    flex-wrap:nowrap !important;
+    white-space:nowrap !important;
+    overflow-x:auto !important;             /* ✅ alta düşmez */
+    -webkit-overflow-scrolling:touch !important;
+    scrollbar-width:none !important;
+  }
+  header.header nav.menu::-webkit-scrollbar{ display:none; }
+
+  header.header nav.menu a{
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    margin: 0 !important;
+  }
+
+  section.hero{ padding-top: 90px !important; }
+}
