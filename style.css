@@ -473,3 +473,51 @@ html,body{
     white-space:nowrap !important; /* tek kelime kaymasın */
   }
 }
+/* ===== MOBIL HEADER KESIN DUZELTME ===== */
+@media (max-width:768px){
+
+  .header{
+    position:fixed !important;
+    top:0;
+    left:0;
+    width:100%;
+    height:64px !important;
+    padding:0 12px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+
+    background:var(--bg-dark);
+    z-index:1000;
+  }
+
+  /* LOGO TAM ORTALI VE DUZ */
+  .logo{
+    height:34px !important;
+    width:auto !important;
+    max-width:130px !important;
+    display:block;
+  }
+
+  /* MENU YAZILARI DUZ SIRADA */
+  .menu{
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    flex-wrap:nowrap !important;
+  }
+
+  .menu a{
+    font-size:13px !important;
+    line-height:1 !important;
+    padding:0 !important;
+    margin:0 !important;
+    white-space:nowrap !important;
+  }
+
+  /* HERO YUKARI KAYMASIN */
+  .hero{
+    padding-top:64px !important;
+  }
+}
