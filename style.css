@@ -371,3 +371,39 @@ html,body{
 @media (max-width:768px){
   html, body{ overflow-x: clip; }
 }
+/* ====== MOBILE KAYMA FIX (TEK PARCA) ====== */
+@media (max-width: 768px){
+
+  html, body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  /* section paddingleri mobilde taşırıyordu */
+  .about-video,
+  .products-area,
+  .contact-area{
+    padding: 100px 16px !important;
+  }
+
+  /* ÇALIŞMALAR: min 300px yüzünden taşma */
+  .products-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* İLETİŞİM: 320px kartlar yüzünden taşma */
+  .contact-cards{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .contact-card{
+    width: 100% !important;
+    max-width: 360px !important;
+    padding: 24px 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* görseller güvenli */
+  img{ max-width:100%; height:auto; display:block; }
+}
