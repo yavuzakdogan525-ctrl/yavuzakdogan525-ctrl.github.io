@@ -385,3 +385,54 @@ html,body{
     display:block;
   }
 }
+/* ===== HEADER DESKTOP GIBI KALSIN + LOGO BUYUSUN (MOBIL/TABLET) ===== */
+@media (max-width: 1024px){
+
+  .header{
+    height:90px !important;
+    padding:0 40px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    flex-wrap:nowrap !important;
+  }
+
+  /* Logo bazen img, bazen a içinde img oluyor: ikisini de yakala */
+  .header .logo{
+    height:72px !important;     /* ✅ LOGO BUYUDU */
+    width:auto !important;
+    max-width:none !important;
+    flex:0 0 auto !important;
+    object-fit:contain !important;
+  }
+
+  .header .logo img{
+    height:72px !important;     /* ✅ eger logo img içerideyse */
+    width:auto !important;
+    max-width:none !important;
+    display:block !important;
+    object-fit:contain !important;
+  }
+
+  /* Menü tek satır, sağda, kayma yok */
+  .menu{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:30px !important;
+    flex-wrap:nowrap !important;
+    flex:1 1 auto !important;
+  }
+
+  .menu a{
+    font-size:16px !important;
+    white-space:nowrap !important;
+    margin:0 !important;
+  }
+}
+
+/* Eğer ekrana sığmazsa SADECE en küçük telefonlarda fontu azıcık düşür */
+@media (max-width: 420px){
+  .menu{ gap:16px !important; }
+  .menu a{ font-size:14px !important; }
+}
