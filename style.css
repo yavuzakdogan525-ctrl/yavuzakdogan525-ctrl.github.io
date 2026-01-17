@@ -439,3 +439,37 @@ html,body{
 
   img, video{ max-width:100% !important; height:auto !important; display:block; }
 }
+/* ===== MOBIL HEADER + MENU DUZELTME ===== */
+@media (max-width:768px){
+
+  /* header biraz incelsin ve hizalansın */
+  .header{
+    height:70px !important;
+    padding:0 14px !important;
+  }
+
+  /* logo: küçülmesin, net dursun */
+  .logo{
+    height:38px !important;
+    width:auto !important;
+    max-width:140px !important;
+  }
+
+  /* menü yazıları: düzgün font, boşluk, alt satıra düşerse de düzgün */
+  .menu{
+    display:flex !important;
+    align-items:center !important;
+    gap:14px !important;
+    flex-wrap:wrap !important;
+    justify-content:flex-end !important;
+    max-width:65vw !important;
+  }
+
+  .menu a{
+    font-size:14px !important;
+    line-height:1.2 !important;
+    letter-spacing:0.2px !important;
+    margin-left:0 !important;
+    white-space:nowrap !important; /* tek kelime kaymasın */
+  }
+}
