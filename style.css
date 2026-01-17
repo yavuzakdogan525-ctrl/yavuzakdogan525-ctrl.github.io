@@ -394,3 +394,45 @@ section.hero p{
     display:block;
   }
 }
+/* ==== AVIZEGUNES TARZI: URUNLER YAN YANA GRID ==== */
+.products-grid{
+  display:grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* PC: 4 yan yana */
+  gap:18px !important;
+  max-width:1200px !important;
+  margin:0 auto !important;
+}
+
+/* Kart sabit boyu kaldır (420px yüzünden kötü duruyor) */
+.product-item{
+  height:auto !important;
+  border-radius:14px !important;
+  overflow:hidden !important;
+  border:1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* Görsel düzeni */
+.product-item img{
+  width:100% !important;
+  aspect-ratio: 1 / 1 !important;  /* avizegunes gibi kare kutular */
+  object-fit:cover !important;
+  display:block !important;
+}
+
+/* Hover hafif zoom kalsın */
+.product-item:hover img{ transform:scale(1.06) !important; }
+
+/* Tablet: 3 */
+@media (max-width: 1024px){
+  .products-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+/* Telefon: 2 yan yana */
+@media (max-width: 768px){
+  .products-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+/* Çok küçük telefon: yine 2 ama aralık biraz düşsün */
+@media (max-width: 390px){
+  .products-grid{ gap:12px !important; }
+}
