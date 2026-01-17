@@ -407,3 +407,35 @@ html,body{
   /* görseller güvenli */
   img{ max-width:100%; height:auto; display:block; }
 }
+@media (max-width:768px){
+
+  /* yatay kaymayı sıfırla */
+  html, body{
+    width:100vw !important;
+    overflow-x: clip !important; /* hidden yerine daha sağlam */
+  }
+
+  /* en sinsi taşma: 100% + padding */
+  .header{
+    left:0 !important;
+    right:0 !important;
+    width:auto !important;
+    padding:0 14px !important;
+  }
+
+  /* her şeyi ekrana zorla sığdır (taşan eleman varsa bile) */
+  *{
+    max-width:100vw !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Çalışmalar grid tek sütun */
+  .products-grid{ grid-template-columns: 1fr !important; }
+
+  /* İletişim kartları tek sütun ve full */
+  .contact-area{ padding:100px 14px !important; }
+  .contact-cards{ flex-direction:column !important; align-items:center !important; }
+  .contact-card{ width:100% !important; max-width:360px !important; }
+
+  img, video{ max-width:100% !important; height:auto !important; display:block; }
+}
