@@ -36,7 +36,7 @@ html,body{
 /* Header logosu: sadece burada kontrol */
 .header .logo{
   height:500px;        /* ✅ logo büyük */
-  width:auto;
+  width:400;
   display:block;
   object-fit:contain;
 }
@@ -44,7 +44,7 @@ html,body{
 .menu{
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:300px;
   flex-wrap:nowrap;
 }
 
