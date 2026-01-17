@@ -19,7 +19,7 @@ html,body{
 }
 
 /* ================= HEADER ================= */
-.header{
+header.header{
   position:fixed;
   top:0;
   left:0;
@@ -33,32 +33,38 @@ html,body{
   z-index:1000;
 }
 
-/* Header logosu: sadece burada kontrol */
-.header .logo{
-  height:500px;        /* ✅ logo büyük */
-  width:400;
+/* ✅ LOGO (hem PC hem mobil) */
+header.header > img.logo{
+  height:60px;         /* PC logo büyük */
+  width:auto;
   display:block;
   object-fit:contain;
+  flex:0 0 auto;
 }
 
-.menu{
+/* ✅ MENU */
+header.header > nav.menu{
   display:flex;
   align-items:center;
-  gap:300px;
+  gap:30px;            /* SAKIN 300 yapma */
   flex-wrap:nowrap;
+  white-space:nowrap;
+  flex:1 1 auto;
+  justify-content:flex-end;
+  min-width:0;         /* kırpılmayı bitirir */
 }
 
-.menu a{
+header.header > nav.menu a{
   color:var(--text);
   text-decoration:none;
   font-size:16px;
   white-space:nowrap;
 }
 
-.menu a:hover{ color:var(--gold); }
+header.header > nav.menu a:hover{ color:var(--gold); }
 
 /* ================= HERO ================= */
-.hero{
+section.hero{
   position:relative;
   height:100vh;
   padding-top:90px; /* header boşluğu */
@@ -72,14 +78,14 @@ html,body{
   width:100%;
 }
 
-.hero h1{
-  font-size:64px;
+section.hero h1{
+  font-size:64px;      /* ✅ dev E yok */
   letter-spacing:4px;
   position:relative;
   z-index:5;
 }
 
-.hero p{
+section.hero p{
   margin:15px 0;
   color:#ccc;
   position:relative;
@@ -311,58 +317,61 @@ html,body{
   cursor:pointer;
 }
 
-/* ================= MOBİL (TEK BLOK) ================= */
+/* ================= MOBİL ================= */
 @media (max-width:768px){
 
-  /* kaymayı bitir */
-  html, body{
-    width:100%;
-    overflow-x:hidden;
+  html, body{ width:100%; overflow-x:hidden; }
+
+  /* Header mobilde de tek satır kalsın */
+  header.header{
+    height:76px;
+    padding:0 12px;
+    gap:10px;
   }
 
-  /* HEADER: tek satır, taşma yok */
-  .header{
-    height:70px;
-    padding:0 14px;
+  /* ✅ mobilde logo büyük ama abartısız */
+  header.header > img.logo{
+    height:52px;
   }
 
-  .header .logo{
-    height:640px;          /* ✅ mobilde logo büyük */
-    width:auto;
-    max-width:160px;
+  /* ✅ mobilde 4 link yan yana görünsün:
+     sığmıyorsa yana doğru kaydırır (alta düşmez, kırpılmaz) */
+  header.header > nav.menu{
+    gap:18px;
+    justify-content:flex-end;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  header.header > nav.menu::-webkit-scrollbar{ display:none; }
+
+  header.header > nav.menu a{
+    font-size:15px;
   }
 
-  .menu{
-    gap:14px;
-    max-width:100vw;
-    overflow:hidden;
+  /* HERO: dev E yok */
+  section.hero{
+    padding-top:76px;
   }
 
-  .menu a{
-    font-size:100px;
+  section.hero h1{
+    font-size:44px;
+    letter-spacing:6px;
+    line-height:1.1;
+    padding:0 12px;
+    white-space:nowrap;
   }
 
-  /* HERO */
-  .hero{
-    padding-top:70px;
-  }
+  section.hero p{ padding:0 12px; }
 
-  .hero h1{
-    font-size:480px;       /* ✅ mobilde CHEZV büyüdü */
-    letter-spacing:60px;
-    padding:0 120px;
-  }
-
-  .hero p{ padding:0 12px; }
-
-  /* Section paddingleri taşırmasın */
+  /* Section paddingleri mobilde taşmasın */
   .about-video,
   .products-area,
   .contact-area{
     padding:100px 16px;
   }
 
-  /* GRID tek sütun */
+  /* Grid tek sütun */
   .products-grid{
     grid-template-columns:1fr;
   }
@@ -384,292 +393,4 @@ html,body{
     height:auto;
     display:block;
   }
-}
-/* ===== HEADER DESKTOP GIBI KALSIN + LOGO BUYUSUN (MOBIL/TABLET) ===== */
-@media (max-width: 1024px){
-
-  .header{
-    height:90px !important;
-    padding:0 40px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    flex-wrap:nowrap !important;
-  }
-
-  /* Logo bazen img, bazen a içinde img oluyor: ikisini de yakala */
-  .header .logo{
-    height:720px !important;     /* ✅ LOGO BUYUDU */
-    width:auto !important;
-    max-width:none !important;
-    flex:0 0 auto !important;
-    object-fit:contain !important;
-  }
-
-  .header .logo img{
-    height:720px !important;     /* ✅ eger logo img içerideyse */
-    width:auto !important;
-    max-width:none !important;
-    display:block !important;
-    object-fit:contain !important;
-  }
-
-  /* Menü tek satır, sağda, kayma yok */
-  .menu{
-    display:flex !important;
-    align-items:center !important;
-    justify-content:flex-end !important;
-    gap:30px !important;
-    flex-wrap:nowrap !important;
-    flex:1 1 auto !important;
-  }
-
-  .menu a{
-    font-size:16px !important;
-    white-space:nowrap !important;
-    margin:0 !important;
-  }
-}
-
-/* Eğer ekrana sığmazsa SADECE en küçük telefonlarda fontu azıcık düşür */
-@media (max-width: 420px){
-  .menu{ gap:16px !important; }
-  .menu a{ font-size:14px !important; }
-}
-/* --- HEADER LOGO BUYUT VE TEK SATIR (HER EKRAN) --- */
-.header{
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-wrap: nowrap !important; /* asla alt satıra kayma */
-  padding: 0 40px !important;
-  height: 90px !important;
-}
-
-/* LOGO BÜYÜT */
-.header .logo,
-.header .logo img {
-  height: 720px !important;  /* LOGO daha büyük */
-  width: auto !important;
-  max-width: none !important;
-}
-
-/* MENÜ TEK SATIRDA */
-.menu{
-  display: flex !important;
-  gap: 30px !important;
-  flex-wrap: nowrap !important; /* sarma yok */
-  justify-content: flex-end !important;
-}
-
-/* Menü yazıları */
-.menu a{
-  font-size: 16px !important;
-  white-space: nowrap !important;
-}
-/* ✅ TELEFONDA DESKTOP GIBI: TEK SATIR + LOGO BUYUK (KAYMA YOK) */
-@media (max-width: 768px){
-
-  .header{
-    height: 90px !important;
-    padding: 0 18px !important;   /* 40px telefonda fazla, sığmaz */
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    flex-wrap: nowrap !important;
-  }
-
-  /* LOGO: hem .logo hem a.logo hem içindeki img yakala */
-  .header .logo,
-  .header a.logo,
-  .header .logo img,
-  .header a.logo img{
-    height: 700px !important;      /* ✅ LOGO BUYUK */
-    width: auto !important;
-    max-width: none !important;
-    display:block !important;
-    object-fit: contain !important;
-    flex: 0 0 auto !important;
-  }
-
- /* ✅ MOBILDE: LOGO BUYUK + MENU TEK SATIR (DESKTOP GIBI) */
-@media (max-width: 768px){
-
-  .header{
-    height: 700px !important;
-    padding: 0 18px !important;      /* 40px telefonda sığmıyor */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex-wrap: nowrap !important;
-  }
-
-  /* ✅ LOGO BUYUT */
-  .header .logo{
-    height: 700px !important;          /* burayı 75 de yapabilirsin */
-    width: auto !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    flex: 0 0 auto !important;
-  }
-
-  /* ✅ MENU TEK SATIR: sığmazsa yana kayar ama alta düşmez */
-  .menu{
-    display: flex !important;
-    align-items: center !important;
-    gap: 18px !important;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
-    overflow-x: auto !important;      /* tek satırın garantisi */
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    flex: 1 1 auto !important;
-    justify-content: flex-end !important;
-  }
-  .menu::-webkit-scrollbar{ display:none; }
-
-  .menu a{
-    font-size: 15px !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
-  }
-
-  /* header altına binmesin */
-  .hero{ padding-top: 90px !important; }
-}
-/* ✅ TELEFONDA: LOGO BUYUK + MENU TEK SATIR */
-@media (max-width: 768px){
-
-  header.header{
-    height: 90px !important;
-    padding: 0 18px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    flex-wrap:nowrap !important;
-  }
-
-  header.header > img.logo{
-    height: 80px !important;   /* ✅ logo büyüsün */
-    width: auto !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    flex: 0 0 auto !important;
-  }
-
-  header.header nav.menu{
-    display:flex !important;
-    align-items:center !important;
-    gap: 18px !important;
-    flex-wrap:nowrap !important;
-    white-space:nowrap !important;
-    overflow-x:auto !important;             /* ✅ alta düşmez */
-    -webkit-overflow-scrolling:touch !important;
-    scrollbar-width:none !important;
-  }
-  header.header nav.menu::-webkit-scrollbar{ display:none; }
-
-  header.header nav.menu a{
-    flex: 0 0 auto !important;
-    white-space: nowrap !important;
-    font-size: 15px !important;
-    margin: 0 !important;
-  }
-
-  section.hero{ padding-top: 90px !important; }
-}
-/* ✅ TELEFONDA: LOGO BUYUK + MENU TEK SATIR */
-@media (max-width: 768px){
-
-  header.header{
-    height: 700px !important;
-    padding: 0 18px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    flex-wrap:nowrap !important;
-  }
-
-  header.header > img.logo{
-    height: 700px !important;   /* ✅ logo büyüsün */
-    width: auto !important;
-    max-width: none !important;
-    object-fit: contain !important;
-    flex: 0 0 auto !important;
-  }
-
-  header.header nav.menu{
-    display:flex !important;
-    align-items:center !important;
-    gap: 18px !important;
-    flex-wrap:nowrap !important;
-    white-space:nowrap !important;
-    overflow-x:auto !important;             /* ✅ alta düşmez */
-    -webkit-overflow-scrolling:touch !important;
-    scrollbar-width:none !important;
-  }
-  header.header nav.menu::-webkit-scrollbar{ display:none; }
-
-  header.header nav.menu a{
-    flex: 0 0 auto !important;
-    white-space: nowrap !important;
-    font-size: 15px !important;
-    margin: 0 !important;
-  }
-
-  section.hero{ padding-top: 90px !important; }
-}
-/* ===== FINAL FIX (MOBIL) ===== */
-@media (max-width:768px){
-
-  /* HEADER düzgün dursun */
-  header.header{
-    height: 76px !important;
-    padding: 0 10px !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content:flex-start !important;
-    gap:10px !important;
-    flex-wrap:nowrap !important;
-    overflow: visible !important;
-  }
-
-  /* LOGO büyüsün */
-  header.header > img.logo{
-    height: 56px !important;
-    width:auto !important;
-    flex:0 0 auto !important;
-    object-fit:contain !important;
-  }
-
-  /* MENU yan yana ve görünür olsun */
-  header.header > nav.menu{
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    display:flex !important;
-    align-items:center !important;
-    justify-content: space-between !important;
-    flex-wrap:nowrap !important;
-    white-space:nowrap !important;
-    overflow: hidden !important;
-  }
-
-  header.header > nav.menu a{
-    font-size: 12.5px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    white-space: nowrap !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  /* HERO yazısı (dev E) düzelsin */
-  .hero h1{
-    font-size: 44px !important;
-    letter-spacing: 6px !important;
-    line-height: 1.1 !important;
-  }
-
-  .hero{ padding-top: 76px !important; }
 }
