@@ -569,3 +569,10 @@ html,body{
     padding-top:90px !important;
   }
 }
+/* SADECE MOBIL LOGO BUYUTME */
+@media (max-width:768px){
+  .logo{
+    height:60px !important;   /* 50–60 arası ideal, 60 verdim */
+    width:auto !important;
+  }
+}
