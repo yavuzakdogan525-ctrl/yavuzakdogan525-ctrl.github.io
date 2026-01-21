@@ -113,7 +113,7 @@ section.hero p{
 
 :root{
   --avize-size: clamp(200px, 26vw, 260px); /* hepsi aynı boy */
-  --avize-gap: 26vw;                      /* aralarındaki mesafe */
+  --avize-gap: 10vw;                      /* aralarındaki mesafe */
   --avize-top: 8vh;                       /* tavandan asılma */
 }
 
