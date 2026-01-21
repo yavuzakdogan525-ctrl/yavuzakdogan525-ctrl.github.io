@@ -109,7 +109,7 @@ section.hero p{
 }
 
 /* ================= AVİZE ================= */
-/* ================= AVİZE (KİLİTLİ) ================= */
+
 
 .chandelier-group{
   position: fixed;                     /* parent’tan bağımsız */
@@ -154,6 +154,22 @@ section.hero p{
   0%{ transform: rotate(-1.5deg); }
   50%{ transform: rotate(1.5deg); }
   100%{ transform: rotate(-1.5deg); }
+  /* ==== AVİZE KİLİT ==== */
+
+.chandelier-group{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: clamp(80px, 12vw, 220px) !important;
+}
+
+/* EN KRİTİK SATIR */
+.chandelier-group > .hang{
+  width: clamp(200px, 22vw, 280px) !important;
+  flex: 0 0 auto !important;
+}
 }
 
 
