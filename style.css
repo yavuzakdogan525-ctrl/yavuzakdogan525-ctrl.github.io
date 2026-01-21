@@ -271,3 +271,30 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* FOTOĞRAF KAYMASINI BİTİRİR */
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+/* MOBİLDE SAĞA-SOLA KAYMA OLMAZ */
+html,body{
+  overflow-x:hidden;
+
+
+/* resimlerin olduğu alan (grid/section) taşmasın */
+.container, .products, .gallery, .cards, section, main{
+  max-width:100%;
+}
+/* Kartlar/ürünler yan yana taşmasın */
+.products, .gallery, .cards{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.products > *, .gallery > *, .cards > *{
+  flex:1 1 180px;   /* mobilde alt alta, büyükte yan yana */
+  min-width:0;
+}
