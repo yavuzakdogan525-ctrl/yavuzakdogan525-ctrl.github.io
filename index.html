@@ -5,28 +5,13 @@
   <title>CHEZV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css?v=300">
 </head>
 
-
-  <div class="chandelier-group">
-    <div class="hang"><img src="images/avize-sol.png" class="chandelier swing"></div>
-    <div class="hang"><img src="images/avize.png" class="chandelier swing"></div>
-    <div class="hang"><img src="images/avize-sag.png" class="chandelier swing"></div>
-  </div>
-
-  <!-- sayfanın geri kalanı -->
 <body>
 
- 
   <!-- ✨ PARILTI -->
   <div class="sparkles">
     <span></span><span></span><span></span><span></span><span></span>
@@ -46,22 +31,20 @@
 
   <!-- HERO -->
   <section id="home" class="hero">
+
+    <!-- ✅ AVİZELER BURADA: hero içinde, sabit durur -->
+    <div class="chandelier-group">
+      <div class="hang"><img src="images/avize-sol.png" class="chandelier swing" alt=""></div>
+      <div class="hang"><img src="images/avize.png" class="chandelier swing" alt=""></div>
+      <div class="hang"><img src="images/avize-sag.png" class="chandelier swing" alt=""></div>
+    </div>
+
     <h1>CHEZV</h1>
     <p>Minimal • Modern • Şık</p>
     <a href="#products" class="btn">Keşfet</a>
   </section>
-  <!-- 🔒 SABİT AVİZE -->
-  <div class="chandelier-group">
-    <div class="hang"><img src="images/avize-sol.png" class="chandelier swing" alt=""></div>
-    <div class="hang"><img src="images/avize.png" class="chandelier swing" alt=""></div>
-    <div class="hang"><img src="images/avize-sag.png" class="chandelier swing" alt=""></div>
-  </div>
-window.addEventListener("scroll", () => {
-  const el = document.querySelector(".chandelier-wrap, .chandelier");
-  if (!el) return;
-  // scroll kaynaklı hareketi sıfırla
-  el.style.transform = "";
-});  <!-- HAKKIMIZDA -->
+
+  <!-- HAKKIMIZDA -->
   <section id="about" class="about-video">
     <h2 class="about-title">HAKKIMIZDA</h2>
   </section>
@@ -85,7 +68,6 @@ window.addEventListener("scroll", () => {
     <h2 class="contact-title">İLETİŞİM</h2>
 
     <div class="contact-cards">
-
       <div class="contact-card">
         <h3>OFİS BİLGİSİ</h3>
         <p>📍 Yenimahalle, 3068. Sk. No: 1/1<br>55200 Atakum / Samsun</p>
@@ -106,9 +88,14 @@ window.addEventListener("scroll", () => {
           <i class="fa-brands fa-tiktok"></i>
         </div>
       </div>
-
     </div>
   </section>
+
+  <!-- ✅ JS mutlaka body'nin en altında, script etiketiyle -->
+  <script>
+    // Burada scroll ile avizeyi oynatan bir kod YOK.
+    // Sadece swing (CSS animasyon) çalışsın diye boş bırakıyoruz.
+  </script>
 
 </body>
 </html>
