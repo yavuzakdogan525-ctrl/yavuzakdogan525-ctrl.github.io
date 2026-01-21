@@ -110,67 +110,21 @@ section.hero p{
 
 /* ================= AVİZE ================= */
 
-:root{
-  --avize-size: clamp(200px, 26vw, 260px); /* hepsi aynı boy */
-  --avize-gap: 100vw;                      /* aralarındaki mesafe */
-  --avize-top: 8vh;                       /* tavandan asılma */
-}
+<div class="chandelier-group">
 
-.chandelier-group{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 420px;
-  pointer-events: none;
-  z-index: 2;
-}
+  <div class="hang left">
+    <img src="images/avize-sol.png" class="chandelier swing" alt="">
+  </div>
 
-/* Ortak wrapper */
-.hang{
-  position: absolute;
-  top: var(--avize-top);
-  width: var(--avize-size);
-  height: var(--avize-size);
-  transform-origin: top center;
-  animation: swing 6.5s ease-in-out infinite;
-}
+  <div class="hang main">
+    <img src="images/avize.png" class="chandelier swing" alt="">
+  </div>
 
-/* ORTA */
-.hang.main{
-  left: 50%;
-  transform: translateX(-50%);
-  animation-duration: 6.5s;
-}
+  <div class="hang right">
+    <img src="images/avize-sag.png" class="chandelier swing" alt="">
+  </div>
 
-/* SOL */
-.hang.left{
-  left: 50%;
-  transform: translateX(-50%) translateX(calc(-1 * var(--avize-gap)));
-  animation-duration: 7.5s;
-}
-
-/* SAĞ */
-.hang.right{
-  left: 50%;
-  transform: translateX(-50%) translateX(var(--avize-gap));
-  animation-duration: 7s;
-}
-
-/* Görseller */
-.chandelier{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* Sallanma */
-@keyframes swing{
-  0%{ transform: rotate(-1.3deg); }
-  50%{ transform: rotate(1.3deg); }
-  100%{ transform: rotate(-1.3deg); }
-}
+</div>
 /* ================= SPARKLES ================= */
 .sparkles{
   position:fixed;
