@@ -5,105 +5,86 @@
   --gold:#c9a45c;
 }
 
+/* ===== RESET ===== */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
+  min-width:0; /* flex/grid taşmalarını bitirir */
 }
 
 html,body{
   background:var(--bg);
   color:var(--text);
+  width:100%;
+  max-width:100%;
   overflow-x:hidden;
 }
 
-/* HEADER */
+/* Görseller taşmasın */
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+/* ===== HEADER (TEK DOĞRU TANIM) ===== */
 .header{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  height:70px;
-  background:#1f1f1f;
-  display:flex;
-  justify-content:flex-end; /* SAĞA YASLI */
-  align-items:center;
-  padding-right:30px;
-  z-index:1000;
-}
-
-/* MENU */
-.menu{
-  display:flex;
-  gap:24px;
-}
-
-/* TÜM MENÜ YAZILARI */
-.menu a{
-  color:#c9a45c !important; /* ALTIN – MAVİYİ ZORLA EZ */
-  text-decoration:none;
-  font-size:14px;
-  font-weight:500;
-  transition:none;          /* hover’da zıplama yok */
-}
-
-/* HOVER / ACTIVE / VISITED – HEPSİ AYNI */
-.menu a:hover,
-.menu a:active,
-.menu a:visited{
-  color:#c9a45c !important;
-}
-
-/* MENU */
-.menu{
-  display:flex;
-  gap:24px;              /* yazılar arası boşluk */
-}
-
-/* LINKLER */
-.menu a{
-  color:#c9a45c;         /* ALTIN RENGİ */
-  text-decoration:none; /* mavi alt çizgi yok */
-  font-size:14px;
-  font-weight:500;
-}
-
-/* TIKLANINCA / ZİYARET EDİNCE MAVİ OLMASIN */
-.menu a:visited,
-.menu a:active,
-.menu a:hover{
-  color:#c9a45c;
-}
-.header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:90px;
+  height:90px;               /* PC */
   background:var(--bg-dark);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 40px;
+  padding:0 24px;
   z-index:1000;
+}
 
+/* Logo */
+.header .logo{
+  height:60px;               /* PC */
+  width:auto;
+  object-fit:contain;
+  flex:0 0 auto;
+}
+
+/* Menü */
+.menu{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:22px;
+  flex-wrap:wrap;            /* gerekirse alt satıra iner */
+  max-width:70%;
+  text-align:right;
 }
 
 .menu a{
-  color:var(--text);
+  color:var(--gold) !important;   /* altın sabit */
   text-decoration:none;
-  margin-left:30px;
   font-size:16px;
+  font-weight:500;
+  white-space:nowrap;
 }
 
-.menu a:hover{ color:var(--gold); }
+/* Hover/active/visited mavi olmasın */
+.menu a:hover,
+.menu a:active,
+.menu a:visited{
+  color:var(--gold) !important;
+}
 
 /* ===== HERO ===== */
 .hero{
   position:relative;
-  height:100vh;
-  padding-top:90px;
+  min-height:calc(100svh - 90px);
+  height:auto;
+  padding-top:90px; /* header kadar boşluk */
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -125,6 +106,8 @@ html,body{
   color:#ccc;
   position:relative;
   z-index:5;
+  max-width:560px;
+  padding:0 6px;
 }
 
 .btn{
@@ -141,15 +124,6 @@ html,body{
 .btn:hover{
   background:var(--gold);
   color:#000;
-}
-
-
-
-/* ===== MOBİL ===== */
-@media (max-width:768px){
-  .chandelier{ width:220px; top:-50px; }
-  .hero h1{ font-size:44px; }
-  .menu a{ margin-left:16px; font-size:14px; }
 }
 
 /* ===== SPARKLES ===== */
@@ -182,8 +156,6 @@ html,body{
   50%{ opacity:1; transform:scale(1.3); }
   100%{ opacity:0; transform:scale(.4); }
 }
-
-
 
 /* ===== ÇALIŞMALAR ===== */
 .products-area{
@@ -312,484 +284,74 @@ html,body{
   color:var(--gold);
   cursor:pointer;
 }
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-/* FOTOĞRAF KAYMASINI BİTİRİR */
-img{
-  display:block;
-  max-width:100%;
-  height:auto;
-}
-
-/* MOBİLDE SAĞA-SOLA KAYMA OLMAZ */
-html,body{
-  overflow-x:hidden;
-
-
-/* resimlerin olduğu alan (grid/section) taşmasın */
-.container, .products, .gallery, .cards, section, main{
-  max-width:100%;
-}
-/* Kartlar/ürünler yan yana taşmasın */
-.products, .gallery, .cards{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px;
-}
-
-.products > *, .gallery > *, .cards > *{
-  flex:1 1 180px;   /* mobilde alt alta, büyükte yan yana */
-  min-width:0;
-}
-/* ✅ MOBİL DÜZELTME - YAZILAR/RESİMLER KAYMASIN */
-@media (max-width: 768px){
-
-  html, body{
-    overflow-x: hidden;
-  }
-
-  /* Header taşmayı bitir */
-  header.header{
-    padding: 0 16px !important;
-    height: 80px !important;
-  }
-
-  /* Logo küçültsün */
-  header.header img.logo{
-    height: 44px !important;
-  }
-
-  /* Menü sağa taşmasın */
-  header.header nav{
-    max-width: 60%;
-  }
-
-  header.header nav ul{
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: flex-end !important;
-    gap: 10px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  header.header nav a{
-    font-size: 14px !important;
-    white-space: nowrap !important;
-  }
-
-  /* Ana başlık mobilde taşmasın/kaymasın */
-  .hero h1, .hero-title, h1{
-    font-size: 40px !important;
-    letter-spacing: 6px !important;
-    text-align: center !important;
-    max-width: 100% !important;
-  }
-
-  /* Bölüm başlıkları (ÇALIŞMALARIM vs) */
-  h2, .section-title{
-    font-size: 28px !important;
-    letter-spacing: 3px !important;
-    text-align: center !important;
-  }
-
-  /* Kartlar / görseller taşmasın */
-  img{
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
-  }
-
-  .card, .work-card, .gallery-item, .product-card{
-    width: 100% !important;
-    max-width: 420px !important;
-    margin: 0 auto !important;
-  }
-}
-/* ====== TELEFONDA PC GİBİ DÜZ / KAYMA YOK ====== */
-
-/* iOS'ta 100vh zıplamasını azaltır + taşmaları keser */
-html, body{
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden;
-}
-
-*{ min-width:0; } /* flex/grid taşmalarını bitirir */
-
-.header{
-  width:100%;
-}
-
-/* Menü taşmasın */
-.menu{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-
-.menu a{
-  white-space:nowrap;
-}
-
-/* HERO tam ekran ama header kadar boşluk bırak */
-.hero{
-  min-height: calc(100svh - 90px);
-  height:auto;
-  padding: 90px 16px 40px;
-}
-
-.hero h1{
-  font-size: clamp(34px, 7vw, 56px);
-  letter-spacing: 3px;
-  max-width: 100%;
-  overflow-wrap:anywhere;
-}
-
-.hero p{
-  max-width: 560px;
-  padding: 0 6px;
-}
-
-/* Ürünler mobilde taşmasın */
-.products-area{
-  padding: 110px 16px;
-}
-
-.products-grid{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
-}
-
-.product-item{
-  height:auto;
-  aspect-ratio: 1 / 1; /* kare gibi dursun, taşma yapmasın */
-  border-radius:16px;
-}
-
-.product-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-/* İletişim mobil */
-.contact-area{
-  padding: 100px 16px;
-}
-
-.contact-cards{
-  flex-direction:column;
-  align-items:stretch;
-  gap:16px;
-}
-
-.contact-card{
-  width:100%;
-  max-width:520px;
-  margin:0 auto;
-}
-
-/* Mobil header ayarı */
+/* ===== MOBİL DÜZELTME ===== */
 @media (max-width:768px){
+
+  /* Header daha yüksek -> menü kesilmesin */
   .header{
-    height:70px;
-    padding:0 16px;
-  }
-  .logo{ height:44px; }
-  .hero{ min-height: calc(100svh - 70px); padding-top:70px; }
-}
-/* ================== MOBİL + GENEL DÜZELTME (EN ALTA YAPIŞTIR) ================== */
-
-/* 1) Taşmayı bitir */
-html, body{
-  margin:0;
-  padding:0;
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden;
-}
-
-/* 2) Flex/grid taşmalarını bitirir */
-*{ min-width:0; }
-
-/* 3) Header sabit -> body yukarı kaçmasın */
-body{ padding-top:90px; }
-
-/* 4) Header tam stabil */
-.header{
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:90px;
-  background:var(--bg-dark);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 24px;
-  z-index:1000;
-}
-
-/* 5) LOGO: büyük olmasın (seninki 500px olduğu için bozuyor) */
-.header .logo{
-  height:60px;
-  width:auto;
-  display:block;
-  object-fit:contain;
-  flex:0 0 auto;
-}
-
-/* 6) Menü taşmasın */
-.menu{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  align-items:center;
-  max-width:70%;
-}
-
-.menu a{
-  white-space:nowrap;
-  margin-left:0;           /* sen margin-left veriyorsun -> taşırıyor */
-  font-size:16px;
-}
-
-/* 7) Hero mobilde zıplamasın (iOS 100vh fix) */
-.hero{
-  min-height: calc(100svh - 90px);
-  height:auto;
-  padding: 24px 16px;
-}
-
-/* 8) Başlık taşmasın */
-.hero h1{
-  font-size: clamp(34px, 7vw, 64px);
-  letter-spacing: 3px;
-  max-width: 100%;
-  overflow-wrap:anywhere;
-}
-
-/* 9) Ürün grid mobilde düzgün */
-.products-area{ padding:120px 16px; }
-
-.products-grid{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:14px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.product-item{
-  height:auto;
-  aspect-ratio: 1 / 1;
-  border-radius:16px;
-}
-
-/* 10) İletişim mobilde tek kolon */
-.contact-area{ padding:110px 16px; }
-
-.contact-cards{
-  flex-direction:column;
-  gap:16px;
-  align-items:stretch;
-}
-
-.contact-card{
-  width:100%;
-  max-width:520px;
-  margin:0 auto;
-}
-
-/* 11) Mobil header küçülsün */
-@media (max-width:768px){
-  body{ padding-top:70px; }
-
-  .header{
-    height:70px;
-    padding:0 14px;
+    height:120px;
+    padding:16px;
+    flex-direction:column;
+    justify-content:center;
   }
 
-  .header .logo{ height:44px; }
+  .header .logo{
+    height:44px;
+    margin-bottom:10px;
+  }
 
   .menu{
-    gap:10px;
-    max-width:75%;
-  }
-
-  .menu a{ font-size:14px; }
-
-  .hero{ min-height: calc(100svh - 70px); }
-}
-/* ===== ALTIN SARISI RENK SABİTLEME ===== */
-
-/* Menü yazıları */
-.menu a{
-  color: var(--gold) !important;
-}
-
-/* Hover rengi (istersen biraz açık ton) */
-.menu a:hover{
-  color: #ffd98a !important;
-}
-
-/* Hero buton / link */
-.btn{
-  color: var(--gold) !important;
-  border-color: var(--gold) !important;
-}
-
-.btn:hover{
-  background: var(--gold) !important;
-  color: #000 !important;
-}
-
-/* Genel link güvenliği (maviye dönmesin) */
-a{
-  color: var(--gold);
-  text-decoration: none;
-}
-/* ===== MOBİL MENÜ + İLETİŞİM YAN YANA ===== */
-@media (max-width: 768px) {
-
-  /* MENÜ */
-  .menu{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
+    max-width:100%;
+    justify-content:center;
     gap:12px;
+    flex-wrap:wrap;      /* 2 satır olur, kesilmez */
   }
 
   .menu a{
     font-size:14px;
-    white-space:nowrap;
   }
 
-  /* İLETİŞİM */
-  .contact,
-  .contact-info{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
+  .hero{
+    min-height:calc(100svh - 120px);
+    padding-top:120px;
+    padding-left:16px;
+    padding-right:16px;
   }
 
-  .contact div,
-  .contact-info div{
-    width:auto;
-    text-align:center;
+  .hero h1{
+    font-size:44px;
+    letter-spacing:3px;
   }
 
-}
-/* ✅ MENÜYÜ HER YERDE SAĞA YASLA */
-header.header{
-  display:flex;
-  align-items:center;
-}
-
-/* logo solda kalsın, menü sağa gitsin */
-header.header .menu{
-  margin-left:auto;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:22px;
-  text-align:right;
-}
-
-/* mobilde de aynı mantık + taşarsa yana kaydır */
-@media (max-width: 768px){
-  header.header{
-    padding:0 16px; /* istersen 12-20 arası oynat */
+  .products-area{
+    padding:110px 16px;
   }
 
-  header.header .menu{
+  .products-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
     gap:14px;
-    overflow-x:auto;
-    white-space:nowrap;
-    -webkit-overflow-scrolling: touch;
   }
 
-  header.header .menu a{
-    flex:0 0 auto;
-    white-space:nowrap;
-  }
-}
-/* ====== HEADER + MENÜ SAĞA YASLA (GARANTİ) ====== */
-.header{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:flex-start !important; /* soldan başla */
-}
-
-.logo{
-  flex:0 0 auto !important;  /* logo sabit */
-}
-
-/* menü kesin sağa */
-.menu{
-  margin-left:auto !important;
-  display:flex !important;
-  justify-content:flex-end !important;
-  align-items:center !important;
-  gap:24px !important;
-  width:auto !important;
-  text-align:right !important;
-}
-
-/* mobilde taşarsa yana kaydır, alt alta düşmesin */
-@media (max-width:768px){
-  .menu{
-    flex-wrap:nowrap !important;
-    overflow-x:auto !important;
-    white-space:nowrap !important;
-    -webkit-overflow-scrolling: touch;
-    gap:14px !important;
-  }
-  .menu a{
-    flex:0 0 auto !important;
-    white-space:nowrap !important;
-  }
-}
-@media (max-width: 768px) {
-
-  header.header{
-    height: 120px;          /* 👉 üst alanı büyüttük */
-    padding: 20px 16px;     /* 👉 nefes aldırdık */
-    flex-direction: column;
-    justify-content: center;
+  .product-item{
+    height:auto;
+    aspect-ratio:1/1;
+    border-radius:16px;
   }
 
-  header.header .menu{
-    margin-top: 12px;
-    display: flex;
-    flex-wrap: wrap;       /* 👉 yazılar alt satıra geçebilir */
-    justify-content: center;
-    gap: 12px;
+  .contact-area{
+    padding:110px 16px;
   }
 
-  header.header .menu a{
-    font-size: 14px;
-    white-space: nowrap;   /* 👉 kelime bölünmez */
+  .contact-cards{
+    flex-direction:column;
+    align-items:stretch;
+    gap:16px;
   }
 
-}
-.hero{
-  padding-top: 140px;   /* 👉 header kadar boşluk */
+  .contact-card{
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
+  }
 }
