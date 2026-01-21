@@ -18,7 +18,6 @@ html,body{
   overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
 /* HEADER */
 .header{
   position:fixed;
@@ -28,9 +27,32 @@ html,body{
   height:70px;
   background:#1f1f1f;
   display:flex;
-  justify-content:center;
+  justify-content:flex-end; /* SAĞA YASLI */
   align-items:center;
+  padding-right:30px;
   z-index:1000;
+}
+
+/* MENU */
+.menu{
+  display:flex;
+  gap:24px;
+}
+
+/* TÜM MENÜ YAZILARI */
+.menu a{
+  color:#c9a45c !important; /* ALTIN – MAVİYİ ZORLA EZ */
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  transition:none;          /* hover’da zıplama yok */
+}
+
+/* HOVER / ACTIVE / VISITED – HEPSİ AYNI */
+.menu a:hover,
+.menu a:active,
+.menu a:visited{
+  color:#c9a45c !important;
 }
 
 /* MENU */
