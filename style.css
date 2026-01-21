@@ -154,7 +154,20 @@ section.hero p{
 @keyframes swing{
   0%{ transform: rotate(-1.2deg); }
   50%{ transform: rotate(1.2deg); }
+  100%{ transform: rotate(-1.2deg); 
+      .hang{ position:absolute; top:0; transform-origin: top center; animation:swing 6s ease-in-out infinite; }
+.hang.main{ left:50%; transform:translateX(-50%); }
+.hang.left{ left:10%; animation-duration:7s; opacity:.85; }
+.hang.right{ right:10%; animation-duration:7.5s; opacity:.85; }
+
+.chandelier{ width: clamp(120px, 22vw, 200px); }
+.hang.main .chandelier{ width: clamp(180px, 32vw, 320px); }
+
+@keyframes swing{
+  0%{ transform: rotate(-1.2deg); }
+  50%{ transform: rotate(1.2deg); }
   100%{ transform: rotate(-1.2deg); }
+}
 }
 /* ================= SPARKLES ================= */
 .sparkles{
