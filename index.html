@@ -32,7 +32,12 @@
     <div class="hang"><img src="images/avize.png" class="chandelier swing" alt=""></div>
     <div class="hang"><img src="images/avize-sag.png" class="chandelier swing" alt=""></div>
   </div>
-
+window.addEventListener("scroll", () => {
+  const el = document.querySelector(".chandelier-wrap, .chandelier");
+  if (!el) return;
+  // scroll kaynaklı hareketi sıfırla
+  el.style.transform = "";
+});
   <!-- ✨ PARILTI -->
   <div class="sparkles">
     <span></span><span></span><span></span><span></span><span></span>
