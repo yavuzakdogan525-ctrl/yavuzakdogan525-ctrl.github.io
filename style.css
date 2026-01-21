@@ -132,8 +132,10 @@ section.hero p{
 /* Konumlar */
 .hang.main{ left: 50%; transform: translateX(-50%); }
 .hang.left{
+.hang.main{
   left: 50%;
-  transform: translateX(-50%) translateX(-22vw);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hang.right{
