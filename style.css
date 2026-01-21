@@ -109,18 +109,18 @@ section.hero p{
 }
 
 /* ================= AVİZE ================= */
-/* ================= AVİZE ================= */
 
 .chandelier-group{
   position: absolute;
   top: 8vh;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 14vw;                /* YAN YANA MESAFE */
-  align-items: flex-start;  /* TAVAN HİZASI */
+  left: 0;
+  width: 100%;                 /* ÖNEMLİ: genişlik ver */
+  display: flex !important;    /* ÖNEMLİ: flex’i kilitle */
+  justify-content: center;     /* hepsi ortada */
+  align-items: flex-start;     /* aynı tavandan */
+  gap: clamp(40px, 8vw, 140px);/* ayrıklık */
   pointer-events: none;
-  z-index: 2;
+  z-index: 999;
 }
 
 /* HER AVİZE */
