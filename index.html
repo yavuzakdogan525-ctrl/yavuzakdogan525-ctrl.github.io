@@ -26,18 +26,7 @@
   <!-- sayfanın geri kalanı -->
 <body>
 
-  <!-- 🔒 SABİT AVİZE -->
-  <div class="chandelier-group">
-    <div class="hang"><img src="images/avize-sol.png" class="chandelier swing" alt=""></div>
-    <div class="hang"><img src="images/avize.png" class="chandelier swing" alt=""></div>
-    <div class="hang"><img src="images/avize-sag.png" class="chandelier swing" alt=""></div>
-  </div>
-window.addEventListener("scroll", () => {
-  const el = document.querySelector(".chandelier-wrap, .chandelier");
-  if (!el) return;
-  // scroll kaynaklı hareketi sıfırla
-  el.style.transform = "";
-});
+ 
   <!-- ✨ PARILTI -->
   <div class="sparkles">
     <span></span><span></span><span></span><span></span><span></span>
@@ -61,8 +50,18 @@ window.addEventListener("scroll", () => {
     <p>Minimal • Modern • Şık</p>
     <a href="#products" class="btn">Keşfet</a>
   </section>
-
-  <!-- HAKKIMIZDA -->
+  <!-- 🔒 SABİT AVİZE -->
+  <div class="chandelier-group">
+    <div class="hang"><img src="images/avize-sol.png" class="chandelier swing" alt=""></div>
+    <div class="hang"><img src="images/avize.png" class="chandelier swing" alt=""></div>
+    <div class="hang"><img src="images/avize-sag.png" class="chandelier swing" alt=""></div>
+  </div>
+window.addEventListener("scroll", () => {
+  const el = document.querySelector(".chandelier-wrap, .chandelier");
+  if (!el) return;
+  // scroll kaynaklı hareketi sıfırla
+  el.style.transform = "";
+});  <!-- HAKKIMIZDA -->
   <section id="about" class="about-video">
     <h2 class="about-title">HAKKIMIZDA</h2>
   </section>
