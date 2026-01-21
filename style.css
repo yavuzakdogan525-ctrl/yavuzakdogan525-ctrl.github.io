@@ -563,3 +563,76 @@ section.hero p{
   50% { transform: rotate(2deg); }
   100% { transform: rotate(-2deg); }
 }
+/* =================== MOBİL FIX (EN ALTA EKLE) =================== */
+@media (max-width:768px){
+
+  /* 1) iPhone'da 100vh kırpma sorununu bitir */
+  section.hero{
+    height:auto !important;
+    min-height:100svh !important;   /* modern mobil viewport */
+    padding-top:170px !important;   /* header + avize alanı */
+    padding-bottom:80px !important;
+    justify-content:flex-start !important;
+  }
+
+  /* 2) Yazılar tam görünsün */
+  section.hero h1{
+    font-size:42px !important;
+    letter-spacing:4px !important;
+    line-height:1.1 !important;
+    white-space:normal !important;  /* taşma/kırpma olmasın */
+    margin-top:10px !important;
+  }
+
+  section.hero p{
+    font-size:14px !important;
+    line-height:1.6 !important;
+    padding:0 14px !important;
+    margin-top:12px !important;
+  }
+
+  .btn{
+    margin-top:18px !important;
+  }
+
+  /* 3) Avizeler mobilde kesilmesin: FIXED kalsın, küçülsün, ortalansın */
+  .chandelier-group{
+    position:fixed !important;
+    top:76px !important;            /* senin mobil header yüksekliğin */
+    left:0 !important;
+    width:100vw !important;
+
+    display:flex !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+
+    gap:18px !important;            /* mobilde aralığı küçült */
+    padding:0 10px !important;
+
+    z-index:9999 !important;
+    pointer-events:none !important;
+  }
+
+  .chandelier-group > .hang{
+    width: min(34vw, 160px) !important; /* mobilde ideal boy */
+    flex:0 0 auto !important;
+  }
+
+  .chandelier{
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+
+  /* 4) Çok küçük ekranlarda 3 avize sığmazsa: otomatik 2'ye düşsün */
+  @media (max-width:420px){
+    .chandelier-group > .hang:nth-child(3){
+      display:none !important;
+    }
+    section.hero{
+      padding-top:160px !important;
+    }
+  }
+}
+/* =================== MOBİL FIX (BİTTİ) =================== */
