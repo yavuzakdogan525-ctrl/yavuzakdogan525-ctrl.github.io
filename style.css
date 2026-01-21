@@ -131,9 +131,15 @@ section.hero p{
 
 /* Konumlar */
 .hang.main{ left: 50%; transform: translateX(-50%); }
-.hang.left{ left: 10%; animation-duration: 7s; opacity: 0.85; }
-.hang.right{ right: 10%; animation-duration: 7.5s; opacity: 0.85; }
+.hang.left{
+  left: 50%;
+  transform: translateX(-50%) translateX(-22vw);
+}
 
+.hang.right{
+  left: 50%;
+  transform: translateX(-50%) translateX(22vw);
+}
 /* Görseller */
 .chandelier{
   display: block;
