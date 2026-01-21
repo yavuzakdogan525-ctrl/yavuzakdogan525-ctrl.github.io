@@ -111,12 +111,14 @@ section.hero p{
 /* ================= AVİZE ================= */
 /* ================= AVİZE ================= */
 
+/* ================= AVİZE ================= */
+
 .chandelier-group{
   position: absolute;
   top: 60px;
   left: 0;
   width: 100%;
-  height: 320px;
+  height: 400px;
   pointer-events: none;
   z-index: 2;
 }
@@ -124,50 +126,51 @@ section.hero p{
 /* Sallanma wrapper’da */
 .hang{
   position: absolute;
-  top: 0;
   transform-origin: top center;
   animation: swing 6s ease-in-out infinite;
-}
-
-/* Konumlar */
-.hang.main{ left: 50%; transform: translateX(-50%); }
-.hang.left{
- .hang.main{
-  left: 50%;
-  top: 10vh;                 /* ↑ burayı yukarı/aşağı ayarlarsın */
-  transform: translateX(-50%);
-}
-
-.hang.right{
-  left: 50%;
-  transform: translateX(-50%) translateX(22vw);
-}
-/* Görseller */
-.chandelier{
-  display: block;
-  width: clamp(120px, 22vw, 200px);
-  height: auto;
-}
-
-/* Hepsi aynı boy + aynı hiza */
-:root{
-  --avize-box: clamp(170px, 24vw, 240px); /* burayı büyüt/küçült */
-}
-
-.hang{
-  top: 0;                /* hepsi aynı hizada başlasın */
   width: var(--avize-box);
   height: var(--avize-box);
 }
 
+/* BOYUT */
+:root{
+  --avize-box: clamp(170px, 24vw, 240px);
+}
+
+/* ORTA – asılma noktası yukarıda */
+.hang.main{
+  left: 50%;
+  top: 10vh;                 /* 👈 burası: tavan noktası */
+  transform: translateX(-50%);
+}
+
+/* SOL */
+.hang.left{
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%) translateX(-22vw);
+  animation-duration: 7s;
+  opacity: 0.85;
+}
+
+/* SAĞ */
+.hang.right{
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%) translateX(22vw);
+  animation-duration: 7.5s;
+  opacity: 0.85;
+}
+
+/* Görsel */
 .chandelier{
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* taşmadan sığdır */
+  object-fit: contain;
   display: block;
 }
-}
 
+/* Sallanma */
 @keyframes swing{
   0%{ transform: rotate(-1.2deg); }
   50%{ transform: rotate(1.2deg); }
