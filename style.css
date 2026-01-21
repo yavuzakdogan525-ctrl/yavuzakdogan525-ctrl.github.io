@@ -134,7 +134,7 @@ section.hero p{
 .hang.left{
  .hang.main{
   left: 50%;
-  top: 18vh;                 /* ↑ burayı yukarı/aşağı ayarlarsın */
+  top: 10vh;                 /* ↑ burayı yukarı/aşağı ayarlarsın */
   transform: translateX(-50%);
 }
 
