@@ -710,3 +710,15 @@ section.hero p{
     transform: none !important;   /* translate vs varsa iptal */
   }
 }
+/* ===== MOBİLDE AVİZE İNMESİN (KESİN SABİT) ===== */
+@media (max-width:768px){
+  .chandelier-group{
+    position: fixed !important;   /* absolute'ı ezer */
+    top: 76px !important;         /* mobil header altı */
+    left: 0 !important;
+    transform: none !important;   /* translate vs varsa iptal */
+  
+@media (max-width:768px){
+  body{ padding-top:0 !important; }
+  .hero{ transform:none !important; }
+}
