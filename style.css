@@ -134,8 +134,8 @@ section.hero p{
 .hang.left{
 .hang.main{
   left: 100%;
-  top: 100%;
-  transform: translate(-100%, -100%);
+  top: 300%;
+  transform: translate(-100%, -300%);
 }
 
 .hang.right{
