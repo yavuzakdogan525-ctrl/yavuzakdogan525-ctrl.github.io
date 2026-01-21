@@ -298,3 +298,69 @@ html,body{
   flex:1 1 180px;   /* mobilde alt alta, büyükte yan yana */
   min-width:0;
 }
+/* ✅ MOBİL DÜZELTME - YAZILAR/RESİMLER KAYMASIN */
+@media (max-width: 768px){
+
+  html, body{
+    overflow-x: hidden;
+  }
+
+  /* Header taşmayı bitir */
+  header.header{
+    padding: 0 16px !important;
+    height: 80px !important;
+  }
+
+  /* Logo küçültsün */
+  header.header img.logo{
+    height: 44px !important;
+  }
+
+  /* Menü sağa taşmasın */
+  header.header nav{
+    max-width: 60%;
+  }
+
+  header.header nav ul{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  header.header nav a{
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ana başlık mobilde taşmasın/kaymasın */
+  .hero h1, .hero-title, h1{
+    font-size: 40px !important;
+    letter-spacing: 6px !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+
+  /* Bölüm başlıkları (ÇALIŞMALARIM vs) */
+  h2, .section-title{
+    font-size: 28px !important;
+    letter-spacing: 3px !important;
+    text-align: center !important;
+  }
+
+  /* Kartlar / görseller taşmasın */
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .card, .work-card, .gallery-item, .product-card{
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+  }
+}
