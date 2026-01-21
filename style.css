@@ -132,10 +132,10 @@ section.hero p{
 /* Konumlar */
 .hang.main{ left: 50%; transform: translateX(-50%); }
 .hang.left{
-.hang.main{
-  left: 100%;
-  top: 300%;
-  transform: translate(-100%, -300%);
+ .hang.main{
+  left: 50%;
+  top: 18vh;                 /* ↑ burayı yukarı/aşağı ayarlarsın */
+  transform: translateX(-50%);
 }
 
 .hang.right{
