@@ -667,3 +667,39 @@ a{
   color: var(--gold);
   text-decoration: none;
 }
+/* ===== MOBİL MENÜ + İLETİŞİM YAN YANA ===== */
+@media (max-width: 768px) {
+
+  /* MENÜ */
+  .menu{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    gap:12px;
+  }
+
+  .menu a{
+    font-size:14px;
+    white-space:nowrap;
+  }
+
+  /* İLETİŞİM */
+  .contact,
+  .contact-info{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+  }
+
+  .contact div,
+  .contact-info div{
+    width:auto;
+    text-align:center;
+  }
+
+}
