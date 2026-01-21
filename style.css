@@ -701,3 +701,12 @@ section.hero p{
     display:none !important;
   }
 }
+/* ===== MOBİLDE AVİZE İNMESİN (KESİN SABİT) ===== */
+@media (max-width:768px){
+  .chandelier-group{
+    position: fixed !important;   /* absolute'ı ezer */
+    top: 76px !important;         /* mobil header altı */
+    left: 0 !important;
+    transform: none !important;   /* translate vs varsa iptal */
+  }
+}
