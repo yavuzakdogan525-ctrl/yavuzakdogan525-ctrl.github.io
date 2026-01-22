@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".bg-slide");
   let index = 0;
-
+document.querySelectorAll(".bg-slide")
   if (slides.length === 0) return;
 
   setInterval(() => {
