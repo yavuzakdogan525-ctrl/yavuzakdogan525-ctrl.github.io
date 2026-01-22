@@ -1,68 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
- <section class="hero" id="home">
-
-<div class="hero-bg">
-  <div class="bg-slide active" style="background-image:url('images/bg1.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg2.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg3.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg4.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg5.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg6.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg7.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg8.jpg')"></div>
-  <div class="bg-slide" style="background-image:url('images/bg9.jpg')"></div>
-</div>
-
-  <!-- KARARTI -->
-  <div class="hero-overlay"></div>
-
-<section class="hero" id="home">
-
-  <!-- KAYAN ARKAPLAN -->
-  <div class="hero-bg">
-    <div class="bg-slide active"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-    <div class="bg-slide"></div>
-  </div>
-
-  <!-- KARARTI -->
-  <div class="hero-overlay"></div>
-
-  <!-- SABİT YAZI -->
-  <div class="hero-content">
-    <h1>CHEZV</h1>
-    <p>Minimal • Modern • Şık</p>
-    <a href="#products" class="btn">Keşfet</a>
-  </div>
-
-</section>
-
-<!-- ✅ EN ALTA (</body> öncesi) -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".bg-slide");
-  let index = 0;
-
-  if (slides.length === 0) return;
-
-  setInterval(function () {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, 2000);
-});
-</script>
-  </div>
-
-</section>
+  <meta charset="UTF-8" />
+  <title>CHEZV Aydınlatma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -84,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- HEADER -->
 <header class="header">
-  
-
   <nav class="menu">
     <a href="#home">Anasayfa</a>
     <a href="#about">Hakkımızda</a>
@@ -94,11 +33,36 @@ document.addEventListener("DOMContentLoaded", function () {
   </nav>
 </header>
 
-<!-- HERO / HOME -->
-<section id="home" class="hero">
+<!-- HERO -->
+<section class="hero" id="home">
 
+  <!-- KAYAN ARKAPLAN -->
+  <div class="hero-bg">
+    <div class="bg-slide active" style="background-image:url('images/bg1.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg2.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg3.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg4.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg5.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg6.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg7.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg8.jpg')"></div>
+    <div class="bg-slide" style="background-image:url('images/bg9.jpg')"></div>
+  </div>
+
+  <!-- KARARTI -->
+  <div class="hero-overlay"></div>
+
+  <!-- SABİT YAZI -->
+  <div class="hero-content">
+    <h1>CHEZV</h1>
+    <p>Minimal • Modern • Şık</p>
+    <a href="#products" class="btn">Keşfet</a>
+  </div>
 
 </section>
+
+<!-- (Opsiyonel) HAKKIMIZDA alanın yoksa sorun değil; menü linki boşa gitmesin diye boş blok -->
+<section id="about" style="height:1px;"></section>
 
 <!-- ÇALIŞMALARIMIZ -->
 <section id="products" class="products-area">
@@ -150,14 +114,23 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
 
-<!-- JS -->
+<!-- ✅ TEK JS BLOĞU (hepsi burada) -->
 <script>
-  // Video hover ile ses aç/kapat
-  const video = document.getElementById('aboutVideo');
-  video.addEventListener('mouseenter', () => video.muted = false);
-  video.addEventListener('mouseleave', () => video.muted = true);
+document.addEventListener("DOMContentLoaded", function () {
 
-  // Lightbox
+  // ===== HERO SLIDER =====
+  const slides = document.querySelectorAll(".bg-slide");
+  let index = 0;
+
+  if (slides.length > 0) {
+    setInterval(function () {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 2000);
+  }
+
+  // ===== LIGHTBOX =====
   const items = document.querySelectorAll('.product-item img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -171,20 +144,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+  }
 
-  // Dışarı tıklayınca kapat
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
-  });
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+  }
 
-  // ESC ile kapat
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lightbox.classList.remove('active');
+    if (e.key === 'Escape' && lightbox) lightbox.classList.remove('active');
   });
- <script src="script.js"></script>
+
+  // ===== aboutVideo (sayfanda yoksa hata vermesin) =====
+  const video = document.getElementById('aboutVideo');
+  if (video) {
+    video.addEventListener('mouseenter', () => video.muted = false);
+    video.addEventListener('mouseleave', () => video.muted = true);
+  }
+
+});
 </script>
 
 </body>
